@@ -10,6 +10,8 @@ The home laboratory setup comprises an AWS organization housing two accounts, ex
   <img src="./img/org-struct.png" alt="Organization Structure" width="300">
 </p>
 
+![Employees-Burnout-Analysis-and-Prediction](img/org-struct.png)
+
 ## File Structure
 The directory structure of the home lab project is organized as depicted below.
 
