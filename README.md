@@ -7,10 +7,8 @@ Home lab is a terraform project that defines an enviorment in AWS for personal p
 The home laboratory setup comprises an AWS organization housing two accounts, excluding the root management account: production and development. Within each account, there are two VPCs situated in separate regions, facilitating the implementation of multi-region high availability configurations.
 
 <p align="center">
-  <img src="./img/org-struct.png" alt="Organization Structure" width="300">
+  <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/org-struct.PNG" alt="Organization Structure" width="300">
 </p>
-
-![Employees-Burnout-Analysis-and-Prediction](img/org-struct.png)
 
 ## File Structure
 The directory structure of the home lab project is organized as depicted below.
