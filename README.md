@@ -7,7 +7,7 @@ Home lab is a terraform project that defines an enviorment in AWS for personal p
 The home laboratory setup comprises an AWS organization housing two accounts, excluding the root management account: production and development. Within each account, there are two VPCs situated in separate regions, facilitating the implementation of multi-region high availability configurations.
 
 <p align="center">
-  <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/org-struct.PNG" alt="Organization Structure" width="300">
+  <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/org-struct.PNG" alt="Organization Structure" width="600">
 </p>
 
 ## File Structure
@@ -40,22 +40,22 @@ The diagrams below illustrate the subnet CIDR ranges for each VPC and subnet.
 
 ### prod-use1-vpc1
 <p align="center">
-  <img src="/img/prod-use1-vpc1.png" alt="pro-use1-vpc1" width="300">
+  <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/prod-use1-vpc1.png" alt="pro-use1-vpc1" width="300">
 </p>
 
 ### prod-use2-vpc1
 <p align="center">
-  <img src="/img/prod-use2-vpc1.png" alt="pro-use2-vpc1" width="300">
+  <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/prod-use2-vpc1.png" alt="pro-use2-vpc1" width="300">
 </p>
 
 ### dev-use1-vpc1
 <p align="center">
-  <img src="/img/dev-use1-vpc1.png" alt="dev-use1-vpc1" width="300">
+  <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/dev-use1-vpc1.png" alt="dev-use1-vpc1" width="300">
 </p>
 
 ### dev-use2-vpc1
 <p align="center">
-  <img src="/img/dev-use2-vpc1.png" alt="dev-use2-vpc1" width="300">
+  <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/dev-use2-vpc1.png" alt="dev-use2-vpc1" width="300">
 </p>
 
 ## Licence
