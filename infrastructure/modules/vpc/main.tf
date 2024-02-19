@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+}
+
 resource "aws_vpc" "create_vpc" {
   cidr_block           = var.vpc_cidr_block
   enable_dns_hostnames = true
@@ -18,8 +26,6 @@ resource "aws_subnet" "public" {
     Name = element(element(var.public_subnets, count.index), 2)
   }
 }
-
-
 
 resource "aws_subnet" "private" {
   count = length(var.private_subnets)
