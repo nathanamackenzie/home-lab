@@ -36,3 +36,27 @@ resource "aws_subnet" "private" {
     Name = element(element(var.private_subnets, count.index), 2)
   }
 }
+
+resource "aws_internet_gateway" "vpc-igw" {
+  vpc_id = aws_vpc.create_vpc.id
+
+  tags = {
+    Name = "${var.vpc_name}-igw"
+  }
+}
+
+resource "aws_route_table" "default_rt" {
+ vpc_id = aws_vpc.create_vpc.id
+ 
+ route {
+   cidr_block = "0.0.0.0/0"
+   gateway_id = aws_internet_gateway.vpc-igw.id
+ }
+ 
+ tags = {
+   Name = "Default Route"
+ }
+}
+
+
+

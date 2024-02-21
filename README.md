@@ -39,9 +39,7 @@ The diagrams below illustrate the subnet CIDR ranges for each VPC and subnet.
 
 
 ### prod-use1-vpc1
-<p align="center">
-  <img src="https://github.com/nathanamackenzie/home-lab/blob/main/img/prod-use1-vpc1.png" alt="pro-use1-vpc1" width="300">
-</p>
+![pro-use1-vpc1](./img/prod-use1-vpc1.png)
 
 ### prod-use2-vpc1
 <p align="center">
