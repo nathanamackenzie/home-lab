@@ -17,7 +17,7 @@ provider "aws" {
   region = "us-east-2"
 }
 
-module "dev-use1-vpc1" {
+module "prod-use1-vpc1" {
   source         = "../../modules/vpc"
   vpc_name       = "prod-use1-vpc1"
   providers = {
@@ -38,7 +38,7 @@ module "dev-use1-vpc1" {
     ["192.168.7.0/24", "us-east-1b", "pvt-res-1b"]]
 }
 
-module "dev-use2-vpc1" {
+module "prod-use2-vpc1" {
   source         = "../../modules/vpc"
   vpc_name       = "prod-use2-vpc1"
   providers = {
