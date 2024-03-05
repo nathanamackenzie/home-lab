@@ -62,7 +62,7 @@ module "prod-use2-vpc1" {
 
 // Static website
 resource "aws_s3_bucket" "personal-website" {
-  bucket = "personal-website-6378"
+  bucket = "www.natemackenzie.com"
 }
 
 resource "aws_s3_bucket_policy" "website-bucket-policy" {
@@ -85,11 +85,20 @@ resource "aws_s3_bucket_policy" "website-bucket-policy" {
 })
 }
 
+resource "aws_s3_bucket_versioning" "s3_ver" {
+  bucket = aws_s3_bucket.personal-website.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "allow-public" {
   bucket = aws_s3_bucket.personal-website.id
   block_public_acls = false
   block_public_policy = false
 }
+
 
 resource "aws_s3_bucket_website_configuration" "hosting" {
   bucket = aws_s3_bucket.personal-website.id

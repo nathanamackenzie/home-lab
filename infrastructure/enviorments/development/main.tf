@@ -60,7 +60,7 @@ module "dev-use2-vpc1" {
 }
 
 resource "aws_s3_bucket" "personal-website" {
-  bucket = "personal-website-7583"
+  bucket = "personal-website-345645"
 }
 
 resource "aws_s3_bucket_policy" "website-bucket-policy" {
