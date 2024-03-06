@@ -100,3 +100,15 @@ resource "aws_s3_bucket_website_configuration" "hosting" {
     key = "error.html"
   }
 }
+
+module "visit_db" {
+  source = "../../modules/dynamodb"
+  providers = {
+    aws = aws.us-east-1
+  }
+
+  table_name = "test"
+  hash_key_name = "sessionID"
+  hash_key_type = "S"
+  range_key_name = "epoch"
+}
