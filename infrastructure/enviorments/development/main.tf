@@ -112,3 +112,62 @@ module "visit_db" {
   hash_key_type = "S"
   range_key_name = "epoch"
 }
+
+# API Gateway
+
+resource "aws_api_gateway_rest_api" "apigw" {
+  name = "apigw"
+
+}
+
+resource "aws_api_gateway_resource" "api_resource" {
+  rest_api_id = "${aws_api_gateway_rest_api.apigw.id}"
+  parent_id = "${aws_api_gateway_rest_api.apigw.root_resource_id}"
+  path_part = "visit"
+}
+
+resource "aws_api_gateway_method" "api_method" {
+  rest_api_id = aws_api_gateway_rest_api.apigw.id
+  resource_id = aws_api_gateway_resource.api_resource.id
+  http_method = "POST"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "api_integration" {
+  rest_api_id = aws_api_gateway_rest_api.apigw.id
+  resource_id = aws_api_gateway_resource.api_resource.id
+  http_method = aws_api_gateway_method.api_method.http_method
+  type = "AWS"
+  integration_http_method = "POST"
+  uri                     = "arn:aws:apigateway:us-east-1:dynamodb:action/PutItem"
+  credentials = aws_iam_role.apigw_dynodb_role.arn
+
+}
+
+
+resource "aws_iam_role" "apigw_dynodb_role" {
+  name = "apigw_dynodb_role"
+
+  assume_role_policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": "sts:AssumeRole",
+        "Principal": {
+          "Service": "apigateway.amazonaws.com"
+        },
+        "Effect": "Allow",
+        "Sid": "iamroletrustpolicy"
+      }
+    ]
+  }
+  EOF
+
+}
+
+resource "aws_iam_role_policy" "apigw_dynodb_policy" {
+  name = "apigw_dynodb_policy"
+  role = aws_iam_role.apigw_dynodb_role.id
+  policy = data.aws_iam_policy_document.apigw_dynamo_premissions.json
+}
