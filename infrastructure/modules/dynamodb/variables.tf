@@ -13,6 +13,11 @@ variable "range_key_name" {
   type = string
 }
 
+variable "range_key_type" {
+  description = "Sort key data type"
+  type = string
+}
+
 variable "hash_key_type" {
   description = "Partion key type (S, B, N)"
   default = "S"

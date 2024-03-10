@@ -113,10 +113,12 @@ module "visit_db" {
     aws = aws.us-east-1
   }
 
-  table_name     = "test"
+  table_name     = "visit_log"
   hash_key_name  = "sessionID"
-  hash_key_type  = "S"
+  hash_key_type  = "N"
   range_key_name = "epoch"
+  range_key_type = "S"
+
 }
 
 # API Gateway for website visitor activity

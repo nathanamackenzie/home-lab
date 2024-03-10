@@ -21,6 +21,6 @@ resource "aws_dynamodb_table" "db_table" {
 
   attribute {
     name = var.range_key_name
-    type = "N"
+    type = var.range_key_type
   }
 }
