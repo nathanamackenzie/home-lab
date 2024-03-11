@@ -39,21 +39,23 @@ The diagrams below illustrate the subnet CIDR ranges for each VPC and subnet.
 
 
 ### prod-use1-vpc1
-![pro-use1-vpc1](./img/prod-use1-vpc1.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/nathanamackenzie/home-lab/main/img/prod-use1-vpc1.PNG" alt="pro-use2-vpc1" width="600">
+</p>
 
 ### prod-use2-vpc1
 <p align="center">
-  <img src="https://raw.githubusercontent.com/nathanamackenzie/home-lab/main/img/pro-use2-vpc1.PNG" alt="pro-use2-vpc1" width="300">
+  <img src="https://raw.githubusercontent.com/nathanamackenzie/home-lab/main/img/pro-use2-vpc1.PNG" alt="pro-use2-vpc1" width="600">
 </p>
 
 ### dev-use1-vpc1
 <p align="center">
-  <img src="https://github.com/nathanamackenzie/home-lab/blob/main/img/dev-use1-vpc1.png" alt="dev-use1-vpc1" width="300">
+  <img src="https://raw.githubusercontent.com/nathanamackenzie/home-lab/main/img/dev-use1-vpc1.PNG" alt="dev-use1-vpc1" width="600">
 </p>
 
 ### dev-use2-vpc1
 <p align="center">
-  <img src="https://github.com/nathanamackenzie/home-lab/blob/main/img/dev-use2-vpc1.png" alt="dev-use2-vpc1" width="300">
+  <img src="https://raw.githubusercontent.com/nathanamackenzie/home-lab/main/img/dev-use2-vpc1.PNG" alt="dev-use2-vpc1" width="600">
 </p>
 
 ## Licence
