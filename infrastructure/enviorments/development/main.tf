@@ -116,7 +116,7 @@ module "visit_db" {
   table_name     = "visit_log"
   hash_key_name  = "sessionID"
   hash_key_type  = "N"
-  range_key_name = "epoch"
+  range_key_name = "date-time"
   range_key_type = "S"
 
 }

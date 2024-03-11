@@ -111,3 +111,59 @@ resource "aws_s3_bucket_website_configuration" "hosting" {
     key = "error.html"
   }
 }
+
+# DynamoDB for website visitor activity
+
+module "visit_db" {
+  source = "../../modules/dynamodb"
+  providers = {
+    aws = aws.us-east-1
+  }
+
+  table_name     = "visit_log"
+  hash_key_name  = "sessionID"
+  hash_key_type  = "N"
+  range_key_name = "date-time"
+  range_key_type = "S"
+
+}
+
+# API Gateway for website visitor activity
+
+module "apigw" {
+  source = "../../modules/apigateway"
+  providers = {
+    aws = aws.us-east-1
+  }
+
+  apigw_name   = "visit_apigw"
+  http_method  = "POST"
+  iam_role_arn = aws_iam_role.apigw_dynodb_role.arn
+}
+
+resource "aws_iam_role" "apigw_dynodb_role" {
+  name = "apigw_dynodb_role"
+
+  assume_role_policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": "sts:AssumeRole",
+        "Principal": {
+          "Service": "apigateway.amazonaws.com"
+        },
+        "Effect": "Allow",
+        "Sid": "iamroletrustpolicy"
+      }
+    ]
+  }
+  EOF
+
+}
+
+resource "aws_iam_role_policy" "apigw_dynodb_policy" {
+  name   = "apigw_dynodb_policy"
+  role   = aws_iam_role.apigw_dynodb_role.id
+  policy = data.aws_iam_policy_document.apigw_dynamo_premissions.json
+}
