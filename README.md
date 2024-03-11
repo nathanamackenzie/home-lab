@@ -1,17 +1,22 @@
 # Home Lab
 
 ## Overview
-Home lab is a terraform project that defines an enviorment in AWS for personal projects and learning new services. 
+Home lab is a terraform project for an enviorment in AWS for personal projects and learning new services.
+
+## Hosted Projects
+For detailed arcitectures of projects hosted on this infrastructure visit below.
+
+[Personal Website](https://github.com/nathanamackenzie/personal-website)
 
 ## Account Structure
-The home laboratory setup comprises an AWS organization housing two accounts, excluding the root management account: production and development. Within each account, there are two VPCs situated in separate regions, facilitating the implementation of multi-region high availability configurations.
+The home lab setup comprises an AWS organization housing two accounts, excluding the root management account: production and development. Within each account, there are two VPCs situated in separate regions, allowing the implementation of multi-region highly-available configurations.
 
 <p align="center">
   <img src="https://github.com/nathanamackenzie/home-lab/raw/main/img/org-struct.PNG" alt="Organization Structure" width="600">
 </p>
 
 ## File Structure
-The directory structure of the home lab project is organized as depicted below.
+The directory structure of the home lab project is organized as shown below.
 
 
 ```text
@@ -27,16 +32,17 @@ infrastructure
 |       ├── main.tf
 |       └── datasources.tf
 └── modules
+    ├── apigateway
+    ├── dynamodb
     └── vpc
 
 
 ```
 
 ## VPC Structure
-Each VPC is equipped with 8 subnets, evenly distributed across two availability zones. Within each availability zone, there are four subnets, comprising of one public web subnet and three private subnets: application, database, and reserved.
+Each VPC is holds 8 subnets, distributed across two availability zones. Within each availability zone, there are four subnets, comprising of one public web subnet and three private subnets: application, database, and reserved.
 
 The diagrams below illustrate the subnet CIDR ranges for each VPC and subnet.
-
 
 ### prod-use1-vpc1
 <p align="center">
